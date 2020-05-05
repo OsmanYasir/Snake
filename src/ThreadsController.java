@@ -1,8 +1,13 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 
 //Controls all the game logic .. most important class in this project.
 public class ThreadsController extends Thread {
+	 public static int score = 0;
 	 ArrayList<ArrayList<DataOfSquare>> Squares= new ArrayList<ArrayList<DataOfSquare>>();
 	 Tuple headSnakePos;
 	 int sizeSnake=3;
@@ -62,16 +67,33 @@ public class ThreadsController extends Thread {
 		 boolean eatingFood = posCritique.getX()==foodPosition.y && posCritique.getY()==foodPosition.x;
 		 if(eatingFood){
 			 System.out.println("Yummy!");
+			 score++;
 			 sizeSnake=sizeSnake+1;
 			 	foodPosition = getValAleaNotInSnake();
 
 			 spawnFood(foodPosition);	
 		 }
 	 }
-	 
+
+
+	 //Appends to log file
+	 private void appendToLog(){
+		 String filename = "scores.txt";
+		 try {
+		 	String line = "Score: "+ score +"\n";
+			 Files.write(Paths.get(".\\scores.txt"), line.getBytes(), StandardOpenOption.APPEND);
+		 }catch (IOException e) {
+			 System.out.println("No file named "+filename);
+		 }
+		 catch (Exception e){
+			 System.out.println("Error while creating the score log file");
+		 }
+	 }
 	 //Stops The Game
 	 private void stopTheGame(){
-		 System.out.println("COLISION! \n");
+		 System.out.println("COLISION!");
+		 System.out.println("Score: "+ score);
+		 appendToLog();
 		 while(true){
 			 pauser();
 		 }
