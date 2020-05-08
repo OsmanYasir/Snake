@@ -11,7 +11,6 @@ public class ThreadsController extends Thread {
 	 ArrayList<ArrayList<DataOfSquare>> Squares= new ArrayList<ArrayList<DataOfSquare>>();
 	 Tuple headSnakePos;
 	 int sizeSnake=3;
-	 long speed = 50;
 	 public static int directionSnake ;
 
 	 ArrayList<Tuple> positions = new ArrayList<Tuple>();
@@ -48,7 +47,7 @@ public class ThreadsController extends Thread {
 	 //delay between each move of the snake
 	 private void pauser(){
 		 try {
-				sleep(speed);
+				sleep(SpeedFrame.speed);
 		 } catch (InterruptedException e) {
 				e.printStackTrace();
 		 }
