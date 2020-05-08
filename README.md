@@ -7,7 +7,7 @@ I did not create this game. I only added some functions like speed selection.
 Original creator: https://github.com/hexadeciman/Snake
 
 ### How it looks:
-![alt tag](https://imgur.com/Btc5IOr)
+[img]https://i.imgur.com/Btc5IOr.png[/img]
 ![alt tag](https://i.imgur.com/RVxiGad.png)
 
 
