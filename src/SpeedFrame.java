@@ -47,6 +47,7 @@ public class SpeedFrame extends JFrame implements ActionListener {
         if (e.getSource() == btn){
             speed = 130-value;
             window();
+            this.dispose();
 
 
         }
