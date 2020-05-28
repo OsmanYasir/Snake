@@ -18,7 +18,6 @@ public class SpeedFrame extends JFrame implements ActionListener {
         btn.addActionListener(this);
         lbl1 = new JLabel("Speed of snake");
         lbl = new JLabel("...");
-        slide = new JSlider();
         slide = new JSlider(1, 100, 1);
         slide.setMinorTickSpacing(5);
         slide.setMajorTickSpacing(10);
